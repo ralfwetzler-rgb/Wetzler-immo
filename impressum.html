@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Impressum – Wetzler Immobilien</title>
+<meta name="description" content="Impressum der CRW Holding GmbH (Wetzler Immobilien), Neuwied.">
+<meta name="theme-color" content="#295a38">
+<link rel="icon" href="img/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="canonical" href="https://wetzler.immo/impressum.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Impressum – Wetzler Immobilien">
+<meta property="og:description" content="Impressum der CRW Holding GmbH (Wetzler Immobilien), Neuwied.">
+<meta property="og:image" content="https://wetzler.immo/img/hero.jpg">
+<style>
+/* Wetzler Immobilien – wetzler.immo
+   Layout: linksbündig, max. 1120 px Inhaltsbreite, großzügige Abstände.
+   Der grüne Balken des Logos ist das Gestaltungselement der Seite:
+   er ist die Kopfzeile und kehrt als Kontaktband zurück. Fotos tragen die Farbe. */
+
+@font-face { font-family: "Poppins"; src: url("fonts/poppins-300.woff") format("woff"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/poppins-400.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/poppins-500.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/poppins-700.woff") format("woff"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  --green: #295a38;        /* CI-Grün, aus dem Logo gemessen */
+  --green-deep: #1d4228;   /* Hover auf Grün */
+  --green-wash: #e9f0ea;   /* helle Grünfläche für Hover/Hintergründe */
+  --paper: #ffffff;        /* Seite */
+  --paper-2: #f4f7f4;      /* getönte Abschnitte */
+  --ink: #1b2a1f;          /* Text, leicht ins Grün gezogen */
+  --ink-soft: #5a6a5f;     /* Zweittext */
+  --line: #dbe4dd;         /* Linien */
+  --link: #295a38;         /* Textlinks */
+  --on-green: #ffffff;     /* Text auf Grün */
+  --on-green-soft: #cfe0d4;
+  --focus: #f0c457;        /* Fokusring */
+  --font: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --radius-photo: 14px;
+  --radius-btn: 8px;
+  --gutter: clamp(16px, 5vw, 48px);
+  --maxw: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1712; --paper-2: #16211a; --ink: #e8efe9; --ink-soft: #a9b7ad; --line: #27362c;
+    --green-wash: #1b2a1f; --link: #9ccfa8; --focus: #f0c457; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1712; --paper-2: #16211a; --ink: #e8efe9; --ink-soft: #a9b7ad; --line: #27362c;
+  --green-wash: #1b2a1f; --link: #9ccfa8; --focus: #f0c457; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 20;
+  background: var(--paper); color: var(--ink); padding: 10px 14px; border-radius: var(--radius-btn);
+  text-decoration: none; font-weight: 500;
+}
+.skip:focus { top: 12px; }
+
+/* Kopfzeile = grüner Balken */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--green); color: var(--on-green);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 72px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--on-green); min-width: 0; }
+.brand img { height: 34px; width: auto; }
+.brand span { font-weight: 500; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+.nav { display: none; align-items: center; gap: 26px; }
+.nav a { color: var(--on-green); text-decoration: none; font-weight: 500; font-size: 15px; padding: 6px 0; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a:focus-visible { border-bottom-color: var(--on-green-soft); }
+.top .call {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  color: var(--on-green); text-decoration: none; font-weight: 500; font-size: 15px;
+  border: 1.5px solid rgba(255,255,255,.55); border-radius: var(--radius-btn); padding: 8px 14px;
+}
+.top .call:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+.top .call svg { width: 16px; height: 16px; }
+@media (min-width: 840px) {
+  .nav { display: flex; }
+  .brand span { font-size: 14px; }
+}
+@media (max-width: 420px) {
+  .brand span { display: none; }
+}
+
+/* Auftakt */
+.hero { padding-block: clamp(40px, 7vw, 96px) clamp(56px, 8vw, 112px); overflow-x: clip; }
+.hero .wrap { display: grid; gap: 44px; align-items: center; }
+.hero h1 {
+  font-weight: 300; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: -.02em;
+  margin: 0 0 22px;
+}
+.hero .lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 46ch; margin: 0 0 32px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 22px; border-radius: var(--radius-btn);
+  font-weight: 500; font-size: 16px; text-decoration: none; line-height: 1.2;
+  border: 1.5px solid var(--green); color: var(--link); background: transparent;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.btn:hover { background: var(--green-wash); }
+.btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+.btn.primary:hover { background: var(--green-deep); border-color: var(--green-deep); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+.figure { margin: 0; }
+.figure .frame { position: relative; }
+.figure .frame::before {
+  content: ""; position: absolute; z-index: 0;
+  inset: 22px -14px -22px 22px;
+  background: var(--green); border-radius: var(--radius-photo);
+}
+.figure img {
+  position: relative; z-index: 1; width: 100%;
+  aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-photo);
+}
+.figure figcaption { margin-top: 40px; font-size: 14px; color: var(--ink-soft); }
+@media (min-width: 900px) {
+  .hero .wrap { grid-template-columns: 1.05fr 1fr; gap: 64px; }
+  .figure .frame::before { inset: 26px -26px -26px 26px; }
+  .figure figcaption { margin-top: 44px; }
+}
+
+/* Abschnitte */
+.section { padding-block: clamp(56px, 8vw, 112px); }
+.section.tint { background: var(--paper-2); }
+.section h2 {
+  font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.35rem); line-height: 1.15; letter-spacing: -.015em;
+  margin: 0 0 18px;
+}
+.section .intro { color: var(--ink-soft); max-width: 52ch; margin: 0; font-size: 1.05rem; }
+
+.about .wrap { display: grid; gap: 28px; }
+.about .text p { max-width: 62ch; margin: 0 0 1.1em; }
+.about .text p:last-child { margin-bottom: 0; }
+@media (min-width: 900px) {
+  .about .wrap { grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
+}
+
+.services .grid { display: grid; gap: 36px 48px; margin-top: 44px; }
+.service { margin: 0; }
+.service .mark { width: 30px; height: 30px; color: var(--green); }
+.service h3 { font-weight: 500; font-size: 1.25rem; line-height: 1.25; margin: 14px 0 10px; }
+.service p { color: var(--ink-soft); margin: 0; max-width: 40ch; }
+@media (min-width: 760px) {
+  .services .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Häuser */
+.houses .grid { display: grid; gap: 14px; margin-top: 40px; grid-template-columns: 1fr; }
+.house { margin: 0; position: relative; border-radius: var(--radius-photo); overflow: hidden; background: var(--paper-2); }
+.house img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.house figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 44px 16px 14px;
+  background: linear-gradient(to top, rgba(8, 22, 12, .78), rgba(8, 22, 12, 0));
+  color: #fff; font-size: 14px; line-height: 1.35;
+}
+.house figcaption b { display: block; font-weight: 500; font-size: 15px; }
+@media (min-width: 640px) {
+  .houses .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; grid-auto-flow: dense; }
+  .house img { aspect-ratio: auto; height: 100%; }
+  .house.tall { grid-row: span 2; }
+  .house.wide { grid-column: span 2; }
+}
+@media (min-width: 980px) {
+  .houses .grid {
+    grid-template-columns: repeat(3, 1fr); grid-auto-rows: 250px;
+    grid-template-areas:
+      "a a b"
+      "c d b"
+      "e f f"
+      "e g h";
+  }
+  .houses .h-a { grid-area: a; } .houses .h-b { grid-area: b; } .houses .h-c { grid-area: c; } .houses .h-d { grid-area: d; }
+  .houses .h-e { grid-area: e; } .houses .h-f { grid-area: f; } .houses .h-g { grid-area: g; } .houses .h-h { grid-area: h; }
+}
+
+/* Kontaktband = grüner Balken */
+.contact { background: var(--green); color: var(--on-green); padding-block: clamp(56px, 8vw, 112px); }
+.contact .wrap { display: grid; gap: 36px; }
+.contact h2 { color: #fff; font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.35rem); line-height: 1.15; letter-spacing: -.015em; margin: 0 0 16px; }
+.contact p { color: var(--on-green-soft); max-width: 46ch; margin: 0; font-size: 1.05rem; }
+.contact .lines { display: grid; gap: 22px; align-content: start; }
+.contact .phone {
+  display: inline-block; color: #fff; text-decoration: none;
+  font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 300; line-height: 1.1; letter-spacing: -.01em;
+}
+.contact .mail { display: inline-block; color: #fff; font-size: 1.2rem; font-weight: 400; text-decoration: none; }
+.contact .phone:hover, .contact .mail:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+.contact .label { display: block; font-size: 14px; color: var(--on-green-soft); margin-bottom: 4px; }
+.contact address { font-style: normal; color: var(--on-green-soft); line-height: 1.5; }
+.contact address b { color: #fff; font-weight: 500; }
+@media (min-width: 900px) {
+  .contact .wrap { grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+}
+
+/* Fußzeile */
+.foot { padding-block: 34px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-soft); }
+.foot .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
+.foot .brand { color: var(--ink); gap: 12px; }
+.foot .brand .tile { width: 40px; height: 40px; border-radius: 6px; background: var(--green); display: grid; place-items: center; flex: none; }
+.foot .brand .tile img { height: 16px; width: auto; }
+.foot .brand span { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.foot a { color: inherit; text-decoration: none; }
+.foot a:hover { color: var(--link); text-decoration: underline; text-underline-offset: 4px; }
+.foot .copy { flex-basis: 100%; }
+@media (min-width: 760px) { .foot .copy { flex-basis: auto; } }
+
+/* Rechtstexte */
+.legal { padding-block: clamp(40px, 6vw, 80px); }
+
+.legal h1 { font-weight: 500; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -.015em; line-height: 1.15; margin: 0 0 8px; }
+.legal .stand { color: var(--ink-soft); margin: 0 0 40px; }
+.legal h2 { font-weight: 500; font-size: 1.3rem; line-height: 1.3; margin: 44px 0 10px; }
+.legal h3 { font-weight: 500; font-size: 1.05rem; margin: 24px 0 6px; }
+.legal p, .legal li { max-width: 68ch; }
+.legal p { margin: 0 0 1em; }
+.legal ul { margin: 0 0 1em; padding-left: 1.2em; }
+.legal li { margin-bottom: .35em; }
+.legal a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.legal .block { margin: 0 0 1em; line-height: 1.55; }
+.legal .back { display: inline-block; margin-top: 48px; color: var(--link); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Wetzler Immobilien, zur Startseite">
+      <img src="img/wi-symbol.png" alt="" width="771" height="343">
+      <span>Wetzler Immobilien</span>
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="./#wer-wir-sind">Wer wir sind</a>
+      <a href="./#was-wir-machen">Was wir machen</a>
+      <a href="./#haeuser">Unsere Häuser</a>
+      <a href="./#kontakt">Kontakt</a>
+    </nav>
+    <a class="call" href="tel:+491706919293">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6.2 6.2l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      Anrufen
+    </a>
+  </div>
+</header>
+
+<main id="inhalt" class="legal">
+  <div class="wrap">
+    <h1>Impressum</h1>
+    <p class="stand">Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
+
+    <h2>Anbieter</h2>
+    <p class="block">
+      <b>CRW Holding GmbH</b><br>
+      Wetzler Immobilien<br>
+      Bachstraße 124<br>
+      56566 Neuwied
+    </p>
+
+    <h2>Vertreten durch</h2>
+    <p>Geschäftsführer: Ralf Wetzler</p>
+
+    <h2>Kontakt</h2>
+    <p class="block">
+      Telefon: <a href="tel:+491706919293">0170 6919293</a><br>
+      E‑Mail: <a href="mailto:verwaltung@wetzler.immo">verwaltung@wetzler.immo</a>
+    </p>
+
+    <h2>Registereintrag</h2>
+    <p class="block">
+      Registergericht: Amtsgericht Montabaur<br>
+      Registernummer: HRB 27352
+    </p>
+
+    <h2>Umsatzsteuer-Identifikationsnummer</h2>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE432689258</p>
+
+    <h2>Verantwortlich für den Inhalt</h2>
+    <p>Ralf Wetzler, Bachstraße 124, 56566 Neuwied (§ 18 Abs. 2 Medienstaatsvertrag)</p>
+
+    <h2>Verbraucherstreitbeilegung</h2>
+    <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 Verbraucherstreitbeilegungsgesetz).</p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>Die Inhalte dieser Website haben wir mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität können wir dennoch keine Gewähr übernehmen. Für eigene Inhalte sind wir nach den allgemeinen Gesetzen verantwortlich.</p>
+
+    <h2>Haftung für Links</h2>
+    <p>Soweit diese Website auf Websites Dritter verweist, haben wir auf deren Inhalte keinen Einfluss. Für diese Inhalte ist der jeweilige Anbieter verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar; bei Bekanntwerden entfernen wir betroffene Links umgehend.</p>
+
+    <h2>Urheberrecht und Bildnachweis</h2>
+    <p>Texte, Gestaltung und Fotos dieser Website sind urheberrechtlich geschützt. Alle Fotos: Wetzler Immobilien. Eine Verwendung außerhalb dieser Website bedarf unserer Zustimmung.</p>
+
+    <a class="back" href="./">Zurück zur Startseite</a>
+  </div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Wetzler Immobilien, zur Startseite">
+      <span class="tile"><img src="img/wi-symbol.png" alt="" width="771" height="343"></span>
+      <span>Wetzler Immobilien</span>
+    </a>
+    <nav aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+    <p class="copy">© 2026 CRW Holding GmbH, Bachstraße 124, 56566 Neuwied</p>
+  </div>
+</footer>
+
+</body>
+</html>
