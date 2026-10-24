@@ -337,7 +337,7 @@ html.lb-open { overflow: hidden; }
 .offer .energy { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
 @media (min-width: 720px) { .offer .energy { min-height: 6em; } }
 .offer .btn { justify-content: center; flex-wrap: wrap; text-align: center; }
-.offer .btn small { font-size: 13px; font-weight: 400; opacity: .85; }
+.offer .btn small { flex-basis: 100%; font-size: 13px; font-weight: 400; opacity: .85; }
 .offer { position: relative; }
 .offer .badge { position: absolute; left: 12px; top: 12px; z-index: 1; background: var(--green); color: #fff; font-size: 13px; font-weight: 500; line-height: 1; padding: 8px 11px; border-radius: 6px; }
 .offer .figures .price .was { display: block; margin-top: 2px; font-size: 13px; color: var(--ink-soft); }
@@ -747,6 +747,34 @@ html.lb-open { overflow: hidden; }
                 Exposé Haus 28a <small>PDF, 3,3 MB</small>
               </a>
             </div>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="img/v-rheinstrasse-11.jpg" alt="Zweifamilienhaus Rheinstraße 11 in Vallendar mit Natursteinfassade, Garage in der Tordurchfahrt und drei Dachfenstern" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Vallendar</p>
+              <h3>Rheinstraße 11</h3>
+            </div>
+            <ul class="tags">
+              <li>Zweifamilienhaus, vermietet</li>
+              <li>ca. 205 m² Wohnfläche</li>
+              <li>ca. 523 m² Grundstück</li>
+              <li>um 1900, erweitert 1975</li>
+              <li>Garage</li>
+              <li>Feuchteschutz 2024</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>500.000 €</dd></div>
+              <div><dt>Preis je m²</dt><dd>ca. 2.439 €</dd></div>
+              <div><dt>Mietdaten</dt><dd>auf Anfrage</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 524,8 kWh/(m²·a), Erdgas, Baujahr lt. Ausweis 1840, Effizienzklasse&nbsp;H</p>
+            <a class="btn primary" href="expose/expose-rheinstrasse-11-vallendar.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 2,8 MB</small>
+            </a>
           </div>
         </article>
 
