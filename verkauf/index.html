@@ -340,6 +340,46 @@ html.lb-open { overflow: hidden; }
 .sale .note { margin: 36px 0 0; max-width: 72ch; font-size: 15px; color: var(--ink-soft); }
 .sale .note a { color: var(--link); text-underline-offset: 3px; }
 
+/* Übersicht + Nummern */
+.offer .nr { position: absolute; left: 12px; top: 12px; z-index: 2; min-width: 34px; height: 34px; padding: 0 8px; display: grid; place-items: center; border-radius: 999px; background: #fff; color: #295a38; font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; box-shadow: 0 1px 4px rgba(0,0,0,.25); }
+.offer .nr ~ .badge { left: 54px; top: 13px; }
+.offer:target { outline: 3px solid var(--green); outline-offset: 2px; }
+.sale .overview { margin-top: 40px; }
+.sale .overview h2 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); margin: 0 0 14px; }
+.ov-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-photo); }
+.ov { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.ov th, .ov td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.ov thead th { font-size: 12.5px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper-2); white-space: nowrap; }
+.ov .n { text-align: right; white-space: nowrap; }
+.ov td.nr { color: var(--ink-soft); width: 2.5em; }
+.ov td a { color: var(--ink); text-decoration: none; font-weight: 500; }
+.ov td a:hover { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.ov .ort { display: block; font-size: 13px; color: var(--ink-soft); }
+.ov .na { color: var(--ink-soft); font-size: 14px; }
+.ov tr.sum td { font-weight: 600; background: var(--green-wash); border-bottom: 1px solid var(--line); }
+.ov tr.sum td .ort { font-weight: 400; }
+.ov tr.sub th { font-size: 12.5px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper-2); }
+.ov tbody tr:last-child td { border-bottom: 0; }
+.sale .ov-note { margin: 10px 0 0; font-size: 13px; color: var(--ink-soft); max-width: 80ch; }
+@media (min-width: 721px) { .ov th, .ov td { padding: 8px 14px; } .ov .ort { display: inline; margin-left: 8px; } }
+@media (max-width: 720px) {
+  .ov-scroll { overflow: visible; }
+  .ov, .ov tbody { display: block; }
+  .ov thead { display: none; }
+  .ov tr { display: grid; grid-template-columns: 2em 1fr 1fr 4.6em; column-gap: 8px; row-gap: 2px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .ov tbody tr:last-child { border-bottom: 0; }
+  .ov td { display: block; padding: 0; border: 0; }
+  .ov td.nr { grid-row: 1 / span 2; width: auto; padding-top: 1px; }
+  .ov td:nth-child(2) { grid-column: 2 / -1; margin-bottom: 4px; }
+  .ov td.n { text-align: left; }
+  .ov td.n:last-child { text-align: right; }
+  .ov td[data-l]::before { content: attr(data-l); display: block; font-size: 11.5px; font-weight: 400; letter-spacing: .04em; color: var(--ink-soft); }
+  .ov td.n:empty { display: none; }
+  .ov tr.sub { display: block; padding: 0; }
+  .ov tr.sub th { display: block; padding: 8px 12px; }
+  .ov tr.sum { background: var(--green-wash); }
+  .ov tr.sum td { background: transparent; border: 0; }
+}
 /* Kontaktband = grüner Balken */
 .contact { background: var(--green); color: var(--on-green); padding-block: clamp(56px, 8vw, 112px); }
 .contact .wrap { display: grid; gap: 36px; }
@@ -422,9 +462,49 @@ html.lb-open { overflow: hidden; }
     <div class="wrap">
       <h1>Zum Verkauf</h1>
       <p class="intro">Diese Häuser aus unserem Bestand geben wir ab, direkt vom Eigentümer und ohne Makler. Die Exposés mit allen Angaben können Sie hier herunterladen.</p>
+      <!-- uebersicht:start -->
+      <div class="overview">
+        <h2>Übersicht</h2>
+        <div class="ov-scroll">
+          <table class="ov">
+            <thead><tr><th>Nr.</th><th>Objekt</th><th class="n">Kaufpreis</th><th class="n">Nettokaltmiete p.&nbsp;a.</th><th class="n">Bruttorendite</th></tr></thead>
+            <tbody>
+              <tr><td class="nr">1</td><td><a href="#objekt-1">Alleestraße 21 <span class="ort">Neuwied-Engers</span></a></td><td class="n" data-l="Kaufpreis">1.500.000 €</td><td class="n" data-l="Miete p. a.">62.100 €</td><td class="n" data-l="Rendite">4,14 %</td></tr>
+              <tr><td class="nr">2</td><td><a href="#objekt-2">Alte Schloßstraße 7 <span class="ort">Neuwied-Engers</span></a></td><td class="n" data-l="Kaufpreis">795.000 €</td><td class="n" data-l="Miete p. a.">30.804 €</td><td class="n" data-l="Rendite">3,87 %</td></tr>
+              <tr><td class="nr">3</td><td><a href="#objekt-3">Am Alten Rathaus 10 <span class="ort">Neuwied-Engers</span></a></td><td class="n" data-l="Kaufpreis">675.000 €</td><td class="n" data-l="Miete p. a.">27.000 €</td><td class="n" data-l="Rendite">4,00 %</td></tr>
+              <tr><td class="nr">4</td><td><a href="#objekt-4">Am Kirchberg 2 · Aubachstraße 3 + 3a <span class="ort">Neuwied-Niederbieber</span></a></td><td class="n" data-l="Kaufpreis">1.550.000 €</td><td class="n" data-l="Miete p. a.">71.860 €</td><td class="n" data-l="Rendite">4,64 %</td></tr>
+              <tr><td class="nr">5</td><td><a href="#objekt-5">Am Schlossgarten 2 <span class="ort">Neuwied-Engers</span></a></td><td class="n" data-l="Kaufpreis">1.229.028 €</td><td class="n" data-l="Miete p. a.">53.436 €</td><td class="n" data-l="Rendite">4,35 %</td></tr>
+              <tr><td class="nr">6</td><td><a href="#objekt-6">Am Wasserturm 11 <span class="ort">Neuwied-Engers</span></a></td><td class="n" data-l="Kaufpreis">810.000 €</td><td class="n" data-l="Miete p. a.">38.580 €</td><td class="n" data-l="Rendite">4,76 %</td></tr>
+              <tr><td class="nr">7</td><td><a href="#objekt-7">Bachstraße 124 <span class="ort">Neuwied-Heimbach-Weis</span></a></td><td class="n" data-l="Kaufpreis">1.250.000 €</td><td class="n" data-l="Miete p. a."><span class="na">auf Anfrage</span></td><td class="n" data-l="Rendite"><span class="na">—</span></td></tr>
+              <tr><td class="nr">8</td><td><a href="#objekt-8">Bachstraße 126 <span class="ort">Neuwied-Heimbach-Weis</span></a></td><td class="n" data-l="Kaufpreis">950.000 €</td><td class="n" data-l="Miete p. a."><span class="na">auf Anfrage</span></td><td class="n" data-l="Rendite"><span class="na">—</span></td></tr>
+              <tr><td class="nr">9</td><td><a href="#objekt-9">Bachstraße 132 <span class="ort">Neuwied-Heimbach-Weis</span></a></td><td class="n" data-l="Kaufpreis">360.000 €</td><td class="n" data-l="Miete p. a."><span class="na">auf Anfrage</span></td><td class="n" data-l="Rendite"><span class="na">—</span></td></tr>
+              <tr><td class="nr">10</td><td><a href="#objekt-10">Friedrich-Rech-Straße 78 <span class="ort">Neuwied-Oberbieber</span></a></td><td class="n" data-l="Kaufpreis">360.000 €</td><td class="n" data-l="Miete p. a.">16.500 €</td><td class="n" data-l="Rendite">4,58 %</td></tr>
+              <tr><td class="nr">11</td><td><a href="#objekt-11">Hahnpark · Engersgaustraße 104 <span class="ort">Neuwied-Heimbach-Weis</span></a></td><td class="n" data-l="Kaufpreis">2.400.000 €</td><td class="n" data-l="Miete p. a."><span class="na">—</span></td><td class="n" data-l="Rendite"><span class="na">—</span></td></tr>
+              <tr><td class="nr">12</td><td><a href="#objekt-12">Hilgenpfad 28 <span class="ort">Neuwied-Heimbach-Weis</span></a></td><td class="n" data-l="Kaufpreis">627.840 €</td><td class="n" data-l="Miete p. a.">26.160 €</td><td class="n" data-l="Rendite">4,17 %</td></tr>
+              <tr><td class="nr">13</td><td><a href="#objekt-13">Hilgenpfad 28a <span class="ort">Neuwied-Heimbach-Weis</span></a></td><td class="n" data-l="Kaufpreis">705.600 €</td><td class="n" data-l="Miete p. a.">27.000 €</td><td class="n" data-l="Rendite">3,83 %</td></tr>
+              <tr><td class="nr">14</td><td><a href="#objekt-14">Rheinhöhenstraße 37a <span class="ort">Neuwied-Irlich</span></a></td><td class="n" data-l="Kaufpreis">520.000 €</td><td class="n" data-l="Miete p. a.">23.100 €</td><td class="n" data-l="Rendite">4,44 %</td></tr>
+              <tr><td class="nr">15</td><td><a href="#objekt-15">Rheinstraße 11 <span class="ort">Vallendar</span></a></td><td class="n" data-l="Kaufpreis">500.000 €</td><td class="n" data-l="Miete p. a."><span class="na">auf Anfrage</span></td><td class="n" data-l="Rendite"><span class="na">—</span></td></tr>
+              <tr><td class="nr">16</td><td><a href="#objekt-16">Rheinstraße 51 <span class="ort">Höhr-Grenzhausen</span></a></td><td class="n" data-l="Kaufpreis">680.000 €</td><td class="n" data-l="Miete p. a.">29.916 €</td><td class="n" data-l="Rendite">4,40 %</td></tr>
+              <tr><td class="nr">17</td><td><a href="#objekt-17">Steinackerstraße 1 <span class="ort">Weitersburg</span></a></td><td class="n" data-l="Kaufpreis">580.000 €</td><td class="n" data-l="Miete p. a.">27.900 €</td><td class="n" data-l="Rendite">4,81 %</td></tr>
+              <tr><td class="nr">18</td><td><a href="#objekt-18">Weiser Straße 3 <span class="ort">Neuwied-Engers</span></a></td><td class="n" data-l="Kaufpreis">480.000 €</td><td class="n" data-l="Miete p. a.">22.680 €<sup>*</sup></td><td class="n" data-l="Rendite">4,72 %</td></tr>
+              <tr><td class="nr">19</td><td><a href="#objekt-19">Weyerstraße 54a · WE 4 <span class="ort">Köln-Altstadt-Süd</span></a></td><td class="n" data-l="Kaufpreis">650.000 €</td><td class="n" data-l="Miete p. a."><span class="na">auf Anfrage</span></td><td class="n" data-l="Rendite"><span class="na">—</span></td></tr>
+              <tr><td class="nr">20</td><td><a href="#objekt-20">Weyerstraße 54a · WE 9 <span class="ort">Köln-Altstadt-Süd</span></a></td><td class="n" data-l="Kaufpreis">470.000 €</td><td class="n" data-l="Miete p. a."><span class="na">auf Anfrage</span></td><td class="n" data-l="Rendite"><span class="na">—</span></td></tr>
+              <tr><td class="nr">21</td><td><a href="#objekt-21">Wilhelmstraße 63 <span class="ort">Neuwied-Innenstadt</span></a></td><td class="n" data-l="Kaufpreis">810.000 €</td><td class="n" data-l="Miete p. a.">35.460 €</td><td class="n" data-l="Rendite">4,38 %</td></tr>
+              <tr class="sum"><td class="nr"></td><td>Summe aller Einzelobjekte <span class="ort">21 Objekte</span></td><td class="n" data-l="Kaufpreis">17.902.468 €</td><td class="n"></td><td class="n"></td></tr>
+              <tr class="sum"><td class="nr"></td><td>davon mit Mietangaben <span class="ort">14 Objekte</span></td><td class="n" data-l="Kaufpreis">11.322.468 €</td><td class="n" data-l="Miete p. a.">492.496 €</td><td class="n" data-l="Rendite">4,35 %</td></tr>
+              <tr class="sub"><th colspan="5">Paketangebote – nicht in den Summen enthalten</th></tr>
+              <tr><td class="nr">22</td><td><a href="#objekt-22">Hilgenpfad 28 + 28a <span class="ort">Nr. 12 + 13 zusammen · Neuwied-Heimbach-Weis</span></a></td><td class="n" data-l="Kaufpreis">1.222.320 €</td><td class="n" data-l="Miete p. a.">53.160 €</td><td class="n" data-l="Rendite">4,35 %</td></tr>
+              <tr><td class="nr">23</td><td><a href="#objekt-23">Weyerstraße 54a · WE 4 + WE 9 <span class="ort">Nr. 19 + 20 zusammen · Köln-Altstadt-Süd</span></a></td><td class="n" data-l="Kaufpreis">1.020.000 €</td><td class="n" data-l="Miete p. a.">23.400 €</td><td class="n" data-l="Rendite">2,29 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="ov-note">Bruttorendite = Jahresnettokaltmiete im Verhältnis zum Kaufpreis. Bei „auf Anfrage“ nennen wir Miet- bzw. Pachtdaten nur auf Nachfrage; diese Objekte sind in der Mietsumme nicht enthalten. Beim Hahnpark handelt es sich um Bauland ohne Mieteinnahmen. * Weiser Straße 3: Sollmiete laut Mietverträgen. Alle Angaben ohne Gewähr.</p>
+      </div>
+      <!-- uebersicht:end -->
       <div class="offers">
 
-        <article class="offer">
+        <article class="offer" id="objekt-1">
+          <span class="nr" aria-label="Objekt Nr. 1">1</span>
           <img src="/img/v-alleestrasse-21.jpg" alt="Luftaufnahme des Wohn- und Geschäftshauses Alleestraße 21 in Neuwied-Engers mit Balkonen zum Garten" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -452,7 +532,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-2">
+          <span class="nr" aria-label="Objekt Nr. 2">2</span>
           <img src="/img/v-alte-schlossstrasse-7.jpg" alt="Straßenfassade des Wohn- und Geschäftshauses Alte Schloßstraße 7 in Neuwied-Engers mit Hauseingang und Schaufenster" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -480,7 +561,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-3">
+          <span class="nr" aria-label="Objekt Nr. 3">3</span>
           <img src="/img/v-am-alten-rathaus-10.jpg" alt="Historisches Eckhaus Am Alten Rathaus 10 in Neuwied-Engers mit Schaufenster, Rundbogentor und Fensterläden" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -508,7 +590,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-4">
+          <span class="nr" aria-label="Objekt Nr. 4">4</span>
           <img src="/img/v-wohnensemble-niederbieber.jpg" alt="Luftaufnahme des Wohnensembles Am Kirchberg 2 und Aubachstraße 3 + 3a an der Straßenecke in Neuwied-Niederbieber" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -536,7 +619,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-5">
+          <span class="nr" aria-label="Objekt Nr. 5">5</span>
           <img src="/img/v-am-schlossgarten-2.jpg" alt="Luftaufnahme des Mehrfamilienhauses Am Schlossgarten 2 in Neuwied-Engers mit Gauben im Dach" width="1200" height="799" loading="lazy">
           <div class="body">
             <div>
@@ -563,7 +647,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-6">
+          <span class="nr" aria-label="Objekt Nr. 6">6</span>
           <img src="/img/v-am-wasserturm-11.jpg" alt="Mehrfamilienhaus Am Wasserturm 11 in Neuwied-Engers mit Schieferdach, Gaube und hellem Putz" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -591,7 +676,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-7">
+          <span class="nr" aria-label="Objekt Nr. 7">7</span>
           <img src="/img/v-bachstrasse-124.jpg" alt="Freistehendes Einfamilienhaus Bachstraße 124 in Neuwied-Heimbach-Weis mit Zwerchhaus, Gauben und gepflegtem Vorgarten" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -619,7 +705,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-8">
+          <span class="nr" aria-label="Objekt Nr. 8">8</span>
           <img src="/img/v-bachstrasse-126.jpg" alt="Freistehendes Bürohaus Bachstraße 126 in Neuwied-Heimbach-Weis mit Photovoltaik auf dem Dach und gepflastertem Vorplatz" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -647,7 +734,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-9">
+          <span class="nr" aria-label="Objekt Nr. 9">9</span>
           <img src="/img/v-bachstrasse-132.jpg" alt="Unverbindliche Planungsstudie für ein Mehrfamilienhaus auf dem Baugrundstück Bachstraße 132 in Neuwied-Heimbach-Weis" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -675,7 +763,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-10">
+          <span class="nr" aria-label="Objekt Nr. 10">10</span>
           <img src="/img/v-friedrich-rech-strasse-78.jpg" alt="Dreifamilienhaus Friedrich-Rech-Straße 78 in Neuwied-Oberbieber mit weißem Putz, Satteldach und Gaube" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -703,7 +792,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-11">
+          <span class="nr" aria-label="Objekt Nr. 11">11</span>
           <img src="/img/v-hahnpark-engersgaustrasse-104.jpg" alt="Unverbindliche Visualisierung des geplanten Wohnquartiers Hahnpark in Neuwied-Heimbach-Weis mit mehrgeschossigen Wohnhäusern und Grünflächen" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -731,7 +821,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-12">
+          <span class="nr" aria-label="Objekt Nr. 12">12</span>
           <img src="/img/v-hilgenpfad-28.jpg" alt="Luftaufnahme des Dreifamilienhauses Hilgenpfad 28 in Neuwied-Heimbach-Weis mit dunklem Dach und Garten" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -758,7 +849,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-13">
+          <span class="nr" aria-label="Objekt Nr. 13">13</span>
           <img src="/img/v-hilgenpfad-28a.jpg" alt="Luftaufnahme des Dreifamilienhauses Hilgenpfad 28a in Neuwied-Heimbach-Weis mit rotem Ziegeldach und Garage" width="1200" height="799" loading="lazy">
           <div class="body">
             <div>
@@ -785,7 +877,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-14">
+          <span class="nr" aria-label="Objekt Nr. 14">14</span>
           <img src="/img/v-rheinhoehenstrasse-37a.jpg" alt="Freistehendes Dreifamilienhaus Rheinhöhenstraße 37a in Neuwied-Irlich mit weißem Putz, Satteldach und angebauter Garage" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -813,7 +906,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-15">
+          <span class="nr" aria-label="Objekt Nr. 15">15</span>
           <img src="/img/v-rheinstrasse-11.jpg" alt="Zweifamilienhaus Rheinstraße 11 in Vallendar mit Natursteinfassade, Garage in der Tordurchfahrt und drei Dachfenstern" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -841,7 +935,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-16">
+          <span class="nr" aria-label="Objekt Nr. 16">16</span>
           <img src="/img/v-rheinstrasse-51.jpg" alt="Luftaufnahme des Wohn- und Geschäftshauses Rheinstraße 51 in Höhr-Grenzhausen mit Anbau und drei Garagentoren" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -869,7 +964,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-17">
+          <span class="nr" aria-label="Objekt Nr. 17">17</span>
           <img src="/img/v-steinackerstrasse-1.jpg" alt="Wohnhaus mit Hinterhaus Steinackerstraße 1 in Weitersburg mit Wintergarten und begrüntem Hof" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -897,7 +993,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-18">
+          <span class="nr" aria-label="Objekt Nr. 18">18</span>
           <img src="/img/v-weiser-strasse-3.jpg" alt="Dreifamilienhaus Weiser Straße 3 in Neuwied-Engers mit hellem Putz, Satteldach und Rundbogenfenster" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -925,7 +1022,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-19">
+          <span class="nr" aria-label="Objekt Nr. 19">19</span>
           <img src="/img/v-weyerstrasse-54a-we4.jpg" alt="Terrasse der Maisonette WE 4 in der Weyerstraße 54a, Köln, mit Holzdeck, Glyzinie und begrünter Wand" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -953,7 +1051,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-20">
+          <span class="nr" aria-label="Objekt Nr. 20">20</span>
           <img src="/img/v-weyerstrasse-54a-we9.jpg" alt="Holzterrasse des Apartments WE 9 in der Weyerstraße 54a, Köln, mit Pflanzbeeten und bodentiefen Fenstern" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -981,7 +1080,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-21">
+          <span class="nr" aria-label="Objekt Nr. 21">21</span>
           <img src="/img/v-wilhelmstrasse-63.jpg" alt="Gründerzeitfassade der Wilhelmstraße 63 in Neuwied aus rotem Backstein mit hellem Erker und Balkon" width="1200" height="800" loading="lazy">
           <div class="body">
             <div>
@@ -1009,7 +1109,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-22">
+          <span class="nr" aria-label="Objekt Nr. 22">22</span>
           <span class="badge">Paketangebot</span>
           <img src="/img/v-hilgenpfad-28-28a-paket.jpg" alt="Luftaufnahmen der beiden Mehrfamilienhäuser Hilgenpfad 28 (links, dunkles Dach) und Hilgenpfad 28a (rechts, rotes Ziegeldach) in Neuwied-Heimbach-Weis" width="1200" height="800" loading="lazy">
           <div class="body">
@@ -1044,7 +1145,8 @@ html.lb-open { overflow: hidden; }
           </div>
         </article>
 
-        <article class="offer">
+        <article class="offer" id="objekt-23">
+          <span class="nr" aria-label="Objekt Nr. 23">23</span>
           <span class="badge">Paketangebot</span>
           <img src="/img/v-weyerstrasse-54a-paket.jpg" alt="Luftaufnahme der Wohnanlage Weyerstraße 54a in Köln-Altstadt-Süd mit begrüntem Innenhof, Außentreppen und Terrassen" width="1200" height="800" loading="lazy">
           <div class="body">
@@ -1082,7 +1184,6 @@ html.lb-open { overflow: hidden; }
             </div>
           </div>
         </article>
-
       </div>
       <p class="note">Fragen zu den Häusern oder Wunsch nach einer Besichtigung? Ansprechpartner für den Verkauf ist Ralf Wetzler, Telefon <a href="tel:+491714668232">0171 4668232</a>, E‑Mail <a href="mailto:info@wetzler.immo">info@wetzler.immo</a>. Alle Angaben ohne Gewähr, Zwischenverkauf vorbehalten.</p>
     </div>
