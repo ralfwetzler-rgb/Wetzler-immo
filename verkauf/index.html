@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zum Verkauf – Wetzler Immobilien</title>
+<meta name="description" content="Häuser aus dem Bestand von Wetzler Immobilien, direkt vom Eigentümer. Exposés zum Herunterladen.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#295a38">
+<link rel="icon" href="/img/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<style>
+/* Wetzler Immobilien – wetzler.immo
+   Layout: linksbündig, max. 1120 px Inhaltsbreite, großzügige Abstände.
+   Der grüne Balken des Logos ist das Gestaltungselement der Seite:
+   er ist die Kopfzeile und kehrt als Kontaktband zurück. Fotos tragen die Farbe. */
+
+@font-face { font-family: "Poppins"; src: url("/fonts/poppins-300.woff") format("woff"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("/fonts/poppins-400.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("/fonts/poppins-500.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("/fonts/poppins-700.woff") format("woff"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  --green: #295a38;        /* CI-Grün, aus dem Logo gemessen */
+  --green-deep: #1d4228;   /* Hover auf Grün */
+  --green-wash: #e9f0ea;   /* helle Grünfläche für Hover/Hintergründe */
+  --paper: #ffffff;        /* Seite */
+  --paper-2: #f4f7f4;      /* getönte Abschnitte */
+  --ink: #1b2a1f;          /* Text, leicht ins Grün gezogen */
+  --ink-soft: #5a6a5f;     /* Zweittext */
+  --line: #dbe4dd;         /* Linien */
+  --link: #295a38;         /* Textlinks */
+  --on-green: #ffffff;     /* Text auf Grün */
+  --on-green-soft: #cfe0d4;
+  --focus: #f0c457;        /* Fokusring */
+  --font: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --radius-photo: 14px;
+  --radius-btn: 8px;
+  --gutter: clamp(16px, 5vw, 48px);
+  --maxw: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1712; --paper-2: #16211a; --ink: #e8efe9; --ink-soft: #a9b7ad; --line: #27362c;
+    --green-wash: #1b2a1f; --link: #9ccfa8; --focus: #f0c457; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1712; --paper-2: #16211a; --ink: #e8efe9; --ink-soft: #a9b7ad; --line: #27362c;
+  --green-wash: #1b2a1f; --link: #9ccfa8; --focus: #f0c457; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+main [id] { scroll-margin-top: 84px; }
+
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 20;
+  background: var(--paper); color: var(--ink); padding: 10px 14px; border-radius: var(--radius-btn);
+  text-decoration: none; font-weight: 500;
+}
+.skip:focus { top: 12px; }
+
+/* Kopfzeile = grüner Balken */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--green); color: var(--on-green);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 72px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--on-green); min-width: 0; }
+.brand img { height: 34px; width: auto; }
+.brand span { font-weight: 500; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+.nav { display: none; align-items: center; gap: 26px; }
+.nav a { color: var(--on-green); text-decoration: none; font-weight: 500; font-size: 15px; padding: 6px 0; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a:focus-visible { border-bottom-color: var(--on-green-soft); }
+.top .call {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  color: var(--on-green); text-decoration: none; font-weight: 500; font-size: 15px;
+  border: 1.5px solid rgba(255,255,255,.55); border-radius: var(--radius-btn); padding: 8px 14px;
+}
+.top .call:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+.top .call svg { width: 16px; height: 16px; }
+.nav a { white-space: nowrap; }
+.top .brand img { flex: none; }
+@media (min-width: 1040px) {
+  .nav { display: flex; gap: 22px; }
+  .top .brand span { display: none; }
+}
+@media (min-width: 1180px) {
+  .nav { gap: 26px; }
+}
+@media (max-width: 420px) {
+  .brand span { display: none; }
+}
+
+/* Auftakt */
+.hero { padding-block: clamp(40px, 7vw, 96px) clamp(56px, 8vw, 112px); overflow-x: clip; }
+.hero .wrap { display: grid; gap: 44px; align-items: center; }
+.hero h1 {
+  font-weight: 300; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: -.02em;
+  margin: 0 0 22px;
+}
+.hero .lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 46ch; margin: 0 0 16px; }
+.hero .lead:last-of-type { margin-bottom: 32px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 22px; border-radius: var(--radius-btn);
+  font-weight: 500; font-size: 16px; text-decoration: none; line-height: 1.2;
+  border: 1.5px solid var(--green); color: var(--link); background: transparent;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.btn:hover { background: var(--green-wash); }
+.btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+.btn.primary:hover { background: var(--green-deep); border-color: var(--green-deep); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+.figure { margin: 0; }
+.figure .frame { position: relative; }
+.figure .frame::before {
+  content: ""; position: absolute; z-index: 0;
+  inset: 22px -14px -22px 22px;
+  background: var(--green); border-radius: var(--radius-photo);
+}
+.figure img {
+  position: relative; z-index: 1; width: 100%;
+  aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-photo);
+}
+.figure figcaption { margin-top: 40px; font-size: 14px; color: var(--ink-soft); }
+@media (min-width: 900px) {
+  .hero .wrap { grid-template-columns: 1.05fr 1fr; gap: 64px; }
+  .figure .frame::before { inset: 26px -26px -26px 26px; }
+  .figure figcaption { margin-top: 44px; }
+}
+
+/* Abschnitte */
+.section { padding-block: clamp(56px, 8vw, 112px); }
+.section.tint { background: var(--paper-2); }
+.section h2, .sale h1 {
+  font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.35rem); line-height: 1.15; letter-spacing: -.015em;
+  margin: 0 0 18px;
+}
+.section .intro { color: var(--ink-soft); max-width: 52ch; margin: 0; font-size: 1.05rem; }
+
+.about .wrap { display: grid; gap: 28px; }
+.about .text p { max-width: 62ch; margin: 0 0 1.1em; }
+.about .text p:last-child { margin-bottom: 0; }
+@media (min-width: 900px) {
+  .about .wrap { grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
+}
+
+.services .grid { display: grid; gap: 36px 48px; margin-top: 44px; }
+.service { margin: 0; }
+.service .mark { width: 30px; height: 30px; color: var(--green); }
+.service h3 { font-weight: 500; font-size: 1.25rem; line-height: 1.25; margin: 14px 0 10px; }
+.service p { color: var(--ink-soft); margin: 0; max-width: 40ch; }
+.service p a { color: var(--link); text-underline-offset: 3px; }
+@media (min-width: 760px) {
+  .services .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Häuser */
+.houses .grid { display: grid; gap: 14px; margin-top: 40px; grid-template-columns: 1fr; }
+.house { margin: 0; position: relative; border-radius: var(--radius-photo); overflow: hidden; background: var(--paper-2); }
+.house img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.house figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 44px 16px 14px;
+  background: linear-gradient(to top, rgba(8, 22, 12, .78), rgba(8, 22, 12, 0));
+  color: #fff; font-size: 14px; line-height: 1.35;
+}
+.house figcaption b { display: block; font-weight: 500; font-size: 15px; }
+@media (min-width: 640px) {
+  .houses .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; grid-auto-flow: dense; }
+  .house img { aspect-ratio: auto; height: 100%; }
+  .house.tall { grid-row: span 2; }
+  .house.wide { grid-column: span 2; }
+}
+@media (min-width: 980px) {
+  .houses .grid {
+    grid-template-columns: repeat(3, 1fr); grid-auto-rows: 250px;
+    grid-template-areas:
+      "a a b"
+      "c d b"
+      "e f f"
+      "e g h";
+  }
+  .houses .h-a { grid-area: a; } .houses .h-b { grid-area: b; } .houses .h-c { grid-area: c; } .houses .h-d { grid-area: d; }
+  .houses .h-e { grid-area: e; } .houses .h-f { grid-area: f; } .houses .h-g { grid-area: g; } .houses .h-h { grid-area: h; }
+}
+
+/* Aktuell zu vermieten */
+.hero-note {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 26px;
+  color: var(--link); font-weight: 500; font-size: 15px;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px;
+}
+.hero-note::before { content: ""; width: 9px; height: 9px; background: var(--green); flex: none; }
+.hero-note:hover { text-decoration-thickness: 2px; }
+
+.rent .head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 32px; }
+.rent .head h2, .rent .head .intro { margin: 0; }
+.listing {
+  margin-top: 40px; display: grid; gap: 28px;
+  background: var(--paper); border-radius: 18px; padding: clamp(12px, 2.4vw, 24px);
+  box-shadow: 0 0 0 1px var(--line), 0 24px 48px -32px rgba(16, 48, 26, .45);
+}
+@media (min-width: 960px) {
+  .listing { grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: start; }
+  .listing .body { padding: 10px 12px 10px 0; }
+  .listing .gallery { position: sticky; top: 96px; }
+}
+
+.gallery { display: grid; gap: 10px; }
+.g-btn {
+  display: block; width: 100%; padding: 0; border: 0; margin: 0; background: var(--paper-2);
+  border-radius: 10px; overflow: hidden; position: relative; cursor: zoom-in; color: inherit; font: inherit;
+}
+.g-btn img { width: 100%; object-fit: cover; transition: transform .35s ease; }
+.g-btn:hover img { transform: scale(1.025); }
+.g-main { border-radius: 12px; }
+.g-main img { aspect-ratio: 4 / 3; }
+.g-badge {
+  position: absolute; left: 12px; top: 12px; z-index: 1;
+  background: var(--green); color: #fff; font-size: 13px; font-weight: 500; line-height: 1;
+  padding: 8px 11px; border-radius: 6px;
+}
+.g-count {
+  position: absolute; right: 12px; bottom: 12px; z-index: 1;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(10, 24, 14, .72); color: #fff; font-size: 13px; font-weight: 500; line-height: 1;
+  padding: 8px 11px; border-radius: 6px;
+}
+.g-count svg { width: 15px; height: 15px; }
+.g-thumbs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.g-thumbs img { aspect-ratio: 1; }
+.g-more {
+  position: absolute; inset: 0; z-index: 1; display: grid; place-items: center;
+  background: rgba(10, 30, 16, .6); color: #fff; font-weight: 500; font-size: 15px;
+}
+/* Handy/Tablet: 4 Vorschaubilder, Desktop: 8 */
+.g-thumbs .wide-only, .g-more.wide { display: none; }
+@media (min-width: 960px) {
+  .g-thumbs li.wide-only { display: block; }
+  .g-more.narrow { display: none; }
+  .g-more.wide { display: grid; }
+}
+
+.listing .kicker { margin: 0 0 8px; font-size: 14px; font-weight: 500; color: var(--ink-soft); letter-spacing: .02em; }
+.listing h3 { font-weight: 500; font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.25; letter-spacing: -.01em; margin: 0 0 22px; }
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin: 0 0 14px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.facts div { background: var(--paper); padding: 12px 14px; }
+.facts dt { font-size: 13px; color: var(--ink-soft); }
+.facts dd { margin: 2px 0 0; font-size: 1.35rem; font-weight: 500; line-height: 1.2; }
+@media (min-width: 560px) and (max-width: 959px) { .facts { grid-template-columns: repeat(4, 1fr); } }
+.facts dd { white-space: nowrap; }
+.listing .fine { font-size: 14px; color: var(--ink-soft); margin: 0 0 22px; }
+.listing .desc { margin: 0 0 18px; max-width: 60ch; }
+.features { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 9px; }
+.features li { position: relative; padding-left: 22px; line-height: 1.45; }
+.features li::before { content: ""; position: absolute; left: 2px; top: .52em; width: 8px; height: 8px; background: var(--green); }
+.specs { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin: 0 0 26px; font-size: 15px; }
+.specs dt { color: var(--ink-soft); }
+.specs dd { margin: 0; }
+.listing .actions { margin-bottom: 18px; }
+.listing .ext { font-size: 15px; color: var(--link); text-underline-offset: 4px; }
+.listing .apply { font-size: 14px; color: var(--ink-soft); margin: 18px 0 0; padding-top: 16px; border-top: 1px solid var(--line); max-width: 62ch; }
+
+/* Bildbetrachter */
+html.lb-open { overflow: hidden; }
+.lightbox {
+  width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0; background: #070f0a; color: #fff; overflow: hidden;
+}
+.lightbox::backdrop { background: #070f0a; }
+.lightbox[open] { display: grid; grid-template-rows: 1fr auto; }
+.lb-stage { display: grid; place-items: center; min-height: 0; padding: 64px 12px 8px; touch-action: pan-y; }
+.lb-stage img {
+  max-width: min(100%, 1100px); max-height: 100%; width: auto; height: auto;
+  object-fit: contain; border-radius: 8px; user-select: none; -webkit-user-drag: none;
+}
+.lb-bar { display: flex; justify-content: center; gap: 14px; align-items: baseline; padding: 12px 16px calc(18px + env(safe-area-inset-bottom, 0px)); font-size: 15px; }
+.lb-bar .pos { color: #a9b7ad; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lb-btn {
+  position: absolute; z-index: 2; display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 999px; border: 0; cursor: pointer;
+  background: rgba(255, 255, 255, .12); color: #fff;
+}
+.lb-btn:hover { background: rgba(255, 255, 255, .22); }
+.lb-btn svg { width: 22px; height: 22px; }
+.lb-close { top: calc(10px + env(safe-area-inset-top, 0px)); right: 12px; }
+.lb-prev, .lb-next { top: 50%; transform: translateY(-50%); }
+.lb-prev { left: 12px; } .lb-next { right: 12px; }
+@media (max-width: 640px) {
+  .lb-prev, .lb-next { top: auto; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); transform: none; }
+  .lb-bar { padding-inline: 72px; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-height: 72px; justify-content: center; }
+}
+
+/* Zum Verkauf */
+.sale .offers { display: grid; gap: 24px; margin-top: 44px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .sale .offers { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .sale .offers { grid-template-columns: repeat(3, 1fr); } }
+.offer {
+  margin: 0; display: flex; flex-direction: column; min-width: 0;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-photo); overflow: hidden;
+}
+.offer img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.offer .body { display: flex; flex-direction: column; gap: 16px; padding: 22px 22px 24px; flex: 1; }
+.offer .where { margin: 0 0 4px; font-size: 13px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--link); }
+.offer h3 { margin: 0; font-weight: 500; font-size: 1.4rem; line-height: 1.2; }
+.offer .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.offer .tags li { font-size: 13.5px; line-height: 1.3; color: var(--ink-soft); background: var(--paper-2); border-radius: 999px; padding: 4px 10px; }
+.offer .figures { margin: auto 0 0; padding-top: 16px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+.offer .figures div { min-width: 0; }
+.offer .figures dt { font-size: 13px; color: var(--ink-soft); }
+.offer .figures dd { margin: 0; font-weight: 500; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.offer .figures .price { grid-column: 1 / -1; }
+.offer .figures .price dd { font-size: 1.6rem; font-weight: 400; letter-spacing: -.01em; color: var(--link); }
+.offer .energy { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+@media (min-width: 720px) { .offer .energy { min-height: 6em; } }
+.offer .btn { justify-content: center; flex-wrap: wrap; text-align: center; }
+.offer .btn small { flex-basis: 100%; font-size: 13px; font-weight: 400; opacity: .85; }
+.offer { position: relative; }
+.offer .badge { position: absolute; left: 12px; top: 12px; z-index: 1; background: var(--green); color: #fff; font-size: 13px; font-weight: 500; line-height: 1; padding: 8px 11px; border-radius: 6px; }
+.offer .figures .price .was { display: block; margin-top: 2px; font-size: 13px; color: var(--ink-soft); }
+.offer .btns { display: grid; gap: 8px; }
+.sale .note { margin: 36px 0 0; max-width: 72ch; font-size: 15px; color: var(--ink-soft); }
+.sale .note a { color: var(--link); text-underline-offset: 3px; }
+
+/* Kontaktband = grüner Balken */
+.contact { background: var(--green); color: var(--on-green); padding-block: clamp(56px, 8vw, 112px); }
+.contact .wrap { display: grid; gap: 36px; }
+.contact h2 { color: #fff; font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.35rem); line-height: 1.15; letter-spacing: -.015em; margin: 0 0 16px; }
+.contact p { color: var(--on-green-soft); max-width: 46ch; margin: 0; font-size: 1.05rem; }
+.contact .lines { display: grid; gap: 22px; align-content: start; }
+.contact .phone {
+  display: inline-block; color: #fff; text-decoration: none;
+  font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 300; line-height: 1.1; letter-spacing: -.01em;
+}
+.contact .mail { display: inline-block; color: #fff; font-size: 1.2rem; font-weight: 400; text-decoration: none; }
+.contact .phone:hover, .contact .mail:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+.contact .label { display: block; font-size: 14px; color: var(--on-green-soft); margin-bottom: 4px; }
+.contact address { font-style: normal; color: var(--on-green-soft); line-height: 1.5; }
+.contact address b { color: #fff; font-weight: 500; }
+@media (min-width: 900px) {
+  .contact .wrap { grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+}
+
+/* Fußzeile */
+.foot { padding-block: 34px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-soft); }
+.foot .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
+.foot .brand { color: var(--ink); gap: 12px; }
+.foot .brand .tile { width: 40px; height: 40px; border-radius: 6px; background: var(--green); display: grid; place-items: center; flex: none; }
+.foot .brand .tile img { height: 16px; width: auto; }
+.foot .brand span { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.foot a { color: inherit; text-decoration: none; }
+.foot a:hover { color: var(--link); text-decoration: underline; text-underline-offset: 4px; }
+.foot .copy { flex-basis: 100%; }
+@media (min-width: 760px) { .foot .copy { flex-basis: auto; } }
+
+/* Rechtstexte */
+.legal { padding-block: clamp(40px, 6vw, 80px); }
+
+.legal h1 { font-weight: 500; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -.015em; line-height: 1.15; margin: 0 0 8px; }
+.legal .stand { color: var(--ink-soft); margin: 0 0 40px; }
+.legal h2 { font-weight: 500; font-size: 1.3rem; line-height: 1.3; margin: 44px 0 10px; }
+.legal h3 { font-weight: 500; font-size: 1.05rem; margin: 24px 0 6px; }
+.legal p, .legal li { max-width: 68ch; }
+.legal p { margin: 0 0 1em; }
+.legal ul { margin: 0 0 1em; padding-left: 1.2em; }
+.legal li { margin-bottom: .35em; }
+.legal a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.legal .block { margin: 0 0 1em; line-height: 1.55; }
+.legal .back { display: inline-block; margin-top: 48px; color: var(--link); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Wetzler Immobilien, zur Startseite">
+      <img src="/img/wi-symbol.png" alt="" width="771" height="343">
+      <span>Wetzler Immobilien</span>
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#zu-vermieten">Zu vermieten</a>
+      <a href="/#wer-wir-sind">Wer wir sind</a>
+      <a href="/#was-wir-machen">Was wir machen</a>
+      <a href="/#haeuser">Unsere Häuser</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+    <a class="call" href="tel:+491706919293">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6.2 6.2l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      Anrufen
+    </a>
+  </div>
+</header>
+
+<main id="inhalt">
+
+  <section class="section tint sale" id="verkauf">
+    <div class="wrap">
+      <h1>Zum Verkauf</h1>
+      <p class="intro">Diese Häuser aus unserem Bestand geben wir ab, direkt vom Eigentümer und ohne Makler. Die Exposés mit allen Angaben können Sie hier herunterladen.</p>
+      <div class="offers">
+
+        <article class="offer">
+          <img src="/img/v-alleestrasse-21.jpg" alt="Luftaufnahme des Wohn- und Geschäftshauses Alleestraße 21 in Neuwied-Engers mit Balkonen zum Garten" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Engers</p>
+              <h3>Alleestraße 21</h3>
+            </div>
+            <ul class="tags">
+              <li>5 Wohnungen + Apotheke</li>
+              <li>ca. 574 m² vermietbare Fläche</li>
+              <li>ca. 532 m² Grundstück</li>
+              <li>Baujahr 1962</li>
+              <li>Wärmepumpe 2026</li>
+              <li>1 Garage</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>1.500.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>62.100 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,14 %</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis (Wohngebäudeteil), Endenergiebedarf 149,2 kWh/(m²·a), Heizöl (Stand vor Umstellung auf Wärmepumpe 2026), Baujahr 1962, Effizienzklasse&nbsp;E</p>
+            <a class="btn primary" href="/expose/expose-alleestrasse-21-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 6,0 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-alte-schlossstrasse-7.jpg" alt="Straßenfassade des Wohn- und Geschäftshauses Alte Schloßstraße 7 in Neuwied-Engers mit Hauseingang und Schaufenster" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Engers</p>
+              <h3>Alte Schloßstraße 7</h3>
+            </div>
+            <ul class="tags">
+              <li>2 Wohnungen + 2 Gewerbe</li>
+              <li>DG-Wohnung im Ausbau (ca. 80 m²)</li>
+              <li>ca. 355 m² Wohn- und Gewerbefläche</li>
+              <li>ca. 484 m² Grundstück</li>
+              <li>um 1900, Anbau 1976</li>
+              <li>1. OG saniert 2024</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>795.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>30.804 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>3,87 %</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 215,0 kWh/(m²·a), Erdgas, Baujahr 1900, Effizienzklasse&nbsp;G</p>
+            <a class="btn primary" href="/expose/expose-alte-schlossstrasse-7-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 4,4 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-am-alten-rathaus-10.jpg" alt="Historisches Eckhaus Am Alten Rathaus 10 in Neuwied-Engers mit Schaufenster, Rundbogentor und Fensterläden" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Engers</p>
+              <h3>Am Alten Rathaus 10</h3>
+            </div>
+            <ul class="tags">
+              <li>2 Wohnungen + 2 Gewerbe</li>
+              <li>ca. 281 m² Fläche</li>
+              <li>ca. 200 m² Grundstück</li>
+              <li>Baujahr 1779, Fachwerk</li>
+              <li>Staffelmiete bis 2031</li>
+              <li>Share Deal möglich</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>675.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>27.000 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,00 %</dd></div>
+            </dl>
+            <p class="energy">Energieausweis in Erstellung, wird spätestens zur Besichtigung vorgelegt</p>
+            <a class="btn primary" href="/expose/expose-am-alten-rathaus-10-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 4,2 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-wohnensemble-niederbieber.jpg" alt="Luftaufnahme des Wohnensembles Am Kirchberg 2 und Aubachstraße 3 + 3a an der Straßenecke in Neuwied-Niederbieber" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Niederbieber</p>
+              <h3>Am Kirchberg 2 · Aubachstraße 3 + 3a</h3>
+            </div>
+            <ul class="tags">
+              <li>Wohnensemble, 10 Wohnungen</li>
+              <li>ca. 755 m² Wohnfläche</li>
+              <li>ca. 1.340 m² Grundstück</li>
+              <li>Baujahre 1911 / 1922 / 1931</li>
+              <li>12 Stellplätze</li>
+              <li>Share Deal möglich</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>1.550.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>71.860 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,64 %</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 339,9 kWh/(m²·a), Erdgas, Baujahr 1911, Effizienzklasse&nbsp;H</p>
+            <a class="btn primary" href="/expose/expose-wohnensemble-niederbieber-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 6,1 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-am-schlossgarten-2.jpg" alt="Luftaufnahme des Mehrfamilienhauses Am Schlossgarten 2 in Neuwied-Engers mit Gauben im Dach" width="1200" height="799" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Engers</p>
+              <h3>Am Schlossgarten 2</h3>
+            </div>
+            <ul class="tags">
+              <li>12 Wohnungen</li>
+              <li>596 m² Wohnfläche</li>
+              <li>1.522 m² Grundstück</li>
+              <li>Baujahr 1973</li>
+              <li>4 Garagen</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>1.229.028 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>53.436 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,35 %</dd></div>
+            </dl>
+            <p class="energy">Energieverbrauchsausweis, Endenergieverbrauch 98,3 kWh/(m²·a), Erdgas, Baujahr laut Ausweis 1974, Effizienzklasse&nbsp;C</p>
+            <a class="btn primary" href="/expose/expose-am-schlossgarten-2-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 3,8 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-am-wasserturm-11.jpg" alt="Mehrfamilienhaus Am Wasserturm 11 in Neuwied-Engers mit Schieferdach, Gaube und hellem Putz" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Engers</p>
+              <h3>Am Wasserturm 11</h3>
+            </div>
+            <ul class="tags">
+              <li>6 Wohnungen, vollvermietet</li>
+              <li>ca. 371 m² Wohnfläche</li>
+              <li>ca. 364 m² Grundstück</li>
+              <li>Baujahr 1977</li>
+              <li>Garage</li>
+              <li>Share Deal möglich</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>810.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>38.580 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,76 %</dd></div>
+            </dl>
+            <p class="energy">Energieverbrauchsausweis, Endenergieverbrauch 103,4 kWh/(m²·a), Erdgas, Baujahr 1977, Effizienzklasse&nbsp;D</p>
+            <a class="btn primary" href="/expose/expose-am-wasserturm-11-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 6,6 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-friedrich-rech-strasse-78.jpg" alt="Dreifamilienhaus Friedrich-Rech-Straße 78 in Neuwied-Oberbieber mit weißem Putz, Satteldach und Gaube" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Oberbieber</p>
+              <h3>Friedrich-Rech-Straße 78</h3>
+            </div>
+            <ul class="tags">
+              <li>3 Wohnungen, vollvermietet</li>
+              <li>ca. 203 m² Wohnfläche</li>
+              <li>ca. 391 m² Grundstück</li>
+              <li>Baujahr 1980</li>
+              <li>2 Garagen + 1 Stellplatz</li>
+              <li>Staffelmieten bis 2031</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>360.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>16.500 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,58 %</dd></div>
+            </dl>
+            <p class="energy">Energieverbrauchsausweis, Endenergieverbrauch 101,4 kWh/(m²·a), Erdgas, Baujahr 1980, Effizienzklasse&nbsp;D</p>
+            <a class="btn primary" href="/expose/expose-friedrich-rech-strasse-78-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 2,7 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-hilgenpfad-28.jpg" alt="Luftaufnahme des Dreifamilienhauses Hilgenpfad 28 in Neuwied-Heimbach-Weis mit dunklem Dach und Garten" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Heimbach-Weis</p>
+              <h3>Hilgenpfad 28</h3>
+            </div>
+            <ul class="tags">
+              <li>3 Wohnungen</li>
+              <li>ca. 263 m² Wohnfläche</li>
+              <li>ca. 467 m² Grundstück</li>
+              <li>Baujahr 1973</li>
+              <li>4 Stellplätze</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>627.840 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>26.160 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,17 %</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 184,2 kWh/(m²·a), Erdgas, Baujahr 1973, Effizienzklasse&nbsp;F</p>
+            <a class="btn primary" href="/expose/expose-hilgenpfad-28-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 4,2 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-hilgenpfad-28a.jpg" alt="Luftaufnahme des Dreifamilienhauses Hilgenpfad 28a in Neuwied-Heimbach-Weis mit rotem Ziegeldach und Garage" width="1200" height="799" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Heimbach-Weis</p>
+              <h3>Hilgenpfad 28a</h3>
+            </div>
+            <ul class="tags">
+              <li>3 Wohnungen</li>
+              <li>ca. 290 m² Wohnfläche</li>
+              <li>ca. 510 m² Grundstück</li>
+              <li>Baujahr 1997</li>
+              <li>Wärmepumpe und Photovoltaik</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>705.600 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>27.000 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>3,83 %</dd></div>
+            </dl>
+            <p class="energy">Energieverbrauchsausweis, Endenergieverbrauch 54,1 kWh/(m²·a), Strom (Wärmepumpe), Baujahr 1997, Effizienzklasse&nbsp;B</p>
+            <a class="btn primary" href="/expose/expose-hilgenpfad-28a-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 3,3 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <span class="badge">Paketangebot</span>
+          <img src="/img/v-hilgenpfad-28-28a-paket.jpg" alt="Luftaufnahmen der beiden Mehrfamilienhäuser Hilgenpfad 28 (links, dunkles Dach) und Hilgenpfad 28a (rechts, rotes Ziegeldach) in Neuwied-Heimbach-Weis" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Heimbach-Weis</p>
+              <h3>Hilgenpfad 28 + 28a im Paket</h3>
+            </div>
+            <ul class="tags">
+              <li>2 Mehrfamilienhäuser</li>
+              <li>6 Wohnungen</li>
+              <li>ca. 553 m² Wohnfläche</li>
+              <li>ca. 977 m² Grundstück</li>
+              <li>8 Stellplätze inkl. Garage</li>
+              <li>Wärmepumpe und PV in Haus 28a</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Paketpreis</dt><dd>1.222.320 €</dd><span class="was">statt 1.333.440 € beim Einzelkauf beider Häuser</span></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>53.160 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,35 %</dd></div>
+            </dl>
+            <p class="energy">Hilgenpfad 28: Energiebedarfsausweis, Endenergiebedarf 184,2 kWh/(m²·a), Erdgas, Baujahr 1973, Effizienzklasse&nbsp;F. Hilgenpfad 28a: Energieverbrauchsausweis, Endenergieverbrauch 54,1 kWh/(m²·a), Strom (Wärmepumpe), Baujahr 1997, Effizienzklasse&nbsp;B</p>
+            <div class="btns">
+              <a class="btn primary" href="/expose/expose-hilgenpfad-28-neuwied.pdf" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                Exposé Haus 28 <small>PDF, 4,2 MB</small>
+              </a>
+              <a class="btn primary" href="/expose/expose-hilgenpfad-28a-neuwied.pdf" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                Exposé Haus 28a <small>PDF, 3,3 MB</small>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-rheinstrasse-11.jpg" alt="Zweifamilienhaus Rheinstraße 11 in Vallendar mit Natursteinfassade, Garage in der Tordurchfahrt und drei Dachfenstern" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Vallendar</p>
+              <h3>Rheinstraße 11</h3>
+            </div>
+            <ul class="tags">
+              <li>Zweifamilienhaus, vermietet</li>
+              <li>ca. 205 m² Wohnfläche</li>
+              <li>ca. 523 m² Grundstück</li>
+              <li>um 1900, erweitert 1975</li>
+              <li>Garage</li>
+              <li>Feuchteschutz 2024</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>500.000 €</dd></div>
+              <div><dt>Preis je m²</dt><dd>ca. 2.439 €</dd></div>
+              <div><dt>Mietdaten</dt><dd>auf Anfrage</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 524,8 kWh/(m²·a), Erdgas, Baujahr lt. Ausweis 1840, Effizienzklasse&nbsp;H</p>
+            <a class="btn primary" href="/expose/expose-rheinstrasse-11-vallendar.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 2,8 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-rheinstrasse-51.jpg" alt="Luftaufnahme des Wohn- und Geschäftshauses Rheinstraße 51 in Höhr-Grenzhausen mit Anbau und drei Garagentoren" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Höhr-Grenzhausen</p>
+              <h3>Rheinstraße 51</h3>
+            </div>
+            <ul class="tags">
+              <li>5 Wohnungen + Lager</li>
+              <li>ca. 381 m² vermietbare Fläche</li>
+              <li>ca. 638 m² Grundstück</li>
+              <li>Baujahr 1950</li>
+              <li>3 Stellplätze + 3 Garagen</li>
+              <li>Share Deal möglich</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>680.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>29.916 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,40 %</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 269,8 kWh/(m²·a), Erdgas, Baujahr 1950, Effizienzklasse&nbsp;H</p>
+            <a class="btn primary" href="/expose/expose-rheinstrasse-51-hoehr-grenzhausen.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 4,6 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="/img/v-wilhelmstrasse-63.jpg" alt="Gründerzeitfassade der Wilhelmstraße 63 in Neuwied aus rotem Backstein mit hellem Erker und Balkon" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Innenstadt</p>
+              <h3>Wilhelmstraße 63</h3>
+            </div>
+            <ul class="tags">
+              <li>4 Wohnungen, vollvermietet</li>
+              <li>ca. 421 m² Wohnfläche</li>
+              <li>ca. 228 m² Grundstück</li>
+              <li>Baudenkmal, um 1900</li>
+              <li>WEG-aufgeteilt (4 Grundbücher)</li>
+              <li>Share Deal möglich</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>810.000 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>35.460 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,38 %</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 229,8 kWh/(m²·a), Erdgas, Baujahr lt. Ausweis 1901, Effizienzklasse&nbsp;G</p>
+            <a class="btn primary" href="/expose/expose-wilhelmstrasse-63-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 4,2 MB</small>
+            </a>
+          </div>
+        </article>
+
+      </div>
+      <p class="note">Fragen zu den Häusern oder Wunsch nach einer Besichtigung? Ansprechpartner für den Verkauf ist Ralf Wetzler, Telefon <a href="tel:+491714668232">0171 4668232</a>, E‑Mail <a href="mailto:info@wetzler.immo">info@wetzler.immo</a>. Alle Angaben ohne Gewähr, Zwischenverkauf vorbehalten.</p>
+    </div>
+  </section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Wetzler Immobilien, zur Startseite">
+      <span class="tile"><img src="/img/wi-symbol.png" alt="" width="771" height="343"></span>
+      <span>Wetzler Immobilien</span>
+    </a>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </nav>
+    <p class="copy">© 2026 CRW Holding GmbH, Bachstraße 124, 56566 Neuwied</p>
+  </div>
+</footer>
+</body>
+</html>
