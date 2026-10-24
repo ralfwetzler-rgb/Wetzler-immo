@@ -338,6 +338,10 @@ html.lb-open { overflow: hidden; }
 @media (min-width: 720px) { .offer .energy { min-height: 6em; } }
 .offer .btn { justify-content: center; flex-wrap: wrap; text-align: center; }
 .offer .btn small { font-size: 13px; font-weight: 400; opacity: .85; }
+.offer { position: relative; }
+.offer .badge { position: absolute; left: 12px; top: 12px; z-index: 1; background: var(--green); color: #fff; font-size: 13px; font-weight: 500; line-height: 1; padding: 8px 11px; border-radius: 6px; }
+.offer .figures .price .was { display: block; margin-top: 2px; font-size: 13px; color: var(--ink-soft); }
+.offer .btns { display: grid; gap: 8px; }
 .sale .note { margin: 36px 0 0; max-width: 72ch; font-size: 15px; color: var(--ink-soft); }
 .sale .note a { color: var(--link); text-underline-offset: 3px; }
 
@@ -708,6 +712,41 @@ html.lb-open { overflow: hidden; }
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
               Exposé herunterladen <small>PDF, 3,3 MB</small>
             </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <span class="badge">Paketangebot</span>
+          <img src="img/v-hilgenpfad-28-28a-paket.jpg" alt="Luftaufnahmen der beiden Mehrfamilienhäuser Hilgenpfad 28 (links, dunkles Dach) und Hilgenpfad 28a (rechts, rotes Ziegeldach) in Neuwied-Heimbach-Weis" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Heimbach-Weis</p>
+              <h3>Hilgenpfad 28 + 28a im Paket</h3>
+            </div>
+            <ul class="tags">
+              <li>2 Mehrfamilienhäuser</li>
+              <li>6 Wohnungen</li>
+              <li>ca. 553 m² Wohnfläche</li>
+              <li>ca. 977 m² Grundstück</li>
+              <li>8 Stellplätze inkl. Garage</li>
+              <li>Wärmepumpe und PV in Haus 28a</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Paketpreis</dt><dd>1.222.320 €</dd><span class="was">statt 1.333.440 € beim Einzelkauf beider Häuser</span></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>53.160 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,35 %</dd></div>
+            </dl>
+            <p class="energy">Hilgenpfad 28: Energiebedarfsausweis, Endenergiebedarf 184,2 kWh/(m²·a), Erdgas, Baujahr 1973, Effizienzklasse&nbsp;F. Hilgenpfad 28a: Energieverbrauchsausweis, Endenergieverbrauch 54,1 kWh/(m²·a), Strom (Wärmepumpe), Baujahr 1997, Effizienzklasse&nbsp;B</p>
+            <div class="btns">
+              <a class="btn primary" href="expose/expose-hilgenpfad-28-neuwied.pdf" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                Exposé Haus 28 <small>PDF, 4,2 MB</small>
+              </a>
+              <a class="btn primary" href="expose/expose-hilgenpfad-28a-neuwied.pdf" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                Exposé Haus 28a <small>PDF, 3,3 MB</small>
+              </a>
+            </div>
           </div>
         </article>
 
