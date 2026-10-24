@@ -98,9 +98,14 @@ h1, h2, h3 { text-wrap: balance; }
 }
 .top .call:hover { background: rgba(255,255,255,.12); border-color: #fff; }
 .top .call svg { width: 16px; height: 16px; }
-@media (min-width: 840px) {
-  .nav { display: flex; }
-  .brand span { font-size: 14px; }
+.nav a { white-space: nowrap; }
+.top .brand img { flex: none; }
+@media (min-width: 1040px) {
+  .nav { display: flex; gap: 22px; }
+  .top .brand span { display: none; }
+}
+@media (min-width: 1180px) {
+  .nav { gap: 26px; }
 }
 @media (max-width: 420px) {
   .brand span { display: none; }
@@ -263,9 +268,11 @@ h1, h2, h3 { text-wrap: balance; }
       <span>Wetzler Immobilien</span>
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
+      <a href="./#zu-vermieten">Zu vermieten</a>
       <a href="./#wer-wir-sind">Wer wir sind</a>
       <a href="./#was-wir-machen">Was wir machen</a>
       <a href="./#haeuser">Unsere Häuser</a>
+      <a href="./#verkauf">Zum Verkauf</a>
       <a href="./#kontakt">Kontakt</a>
     </nav>
     <a class="call" href="tel:+491706919293">

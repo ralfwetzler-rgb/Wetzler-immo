@@ -100,13 +100,13 @@ main [id] { scroll-margin-top: 84px; }
 .top .call:hover { background: rgba(255,255,255,.12); border-color: #fff; }
 .top .call svg { width: 16px; height: 16px; }
 .nav a { white-space: nowrap; }
-@media (min-width: 940px) {
+.top .brand img { flex: none; }
+@media (min-width: 1040px) {
   .nav { display: flex; gap: 22px; }
   .top .brand span { display: none; }
 }
 @media (min-width: 1180px) {
   .nav { gap: 26px; }
-  .top .brand span { display: inline; font-size: 14px; }
 }
 @media (max-width: 420px) {
   .brand span { display: none; }
@@ -314,6 +314,33 @@ html.lb-open { overflow: hidden; }
   .lb-bar { padding-inline: 72px; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-height: 72px; justify-content: center; }
 }
 
+/* Zum Verkauf */
+.sale .offers { display: grid; gap: 24px; margin-top: 44px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .sale .offers { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .sale .offers { grid-template-columns: repeat(3, 1fr); } }
+.offer {
+  margin: 0; display: flex; flex-direction: column; min-width: 0;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-photo); overflow: hidden;
+}
+.offer img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.offer .body { display: flex; flex-direction: column; gap: 16px; padding: 22px 22px 24px; flex: 1; }
+.offer .where { margin: 0 0 4px; font-size: 13px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--link); }
+.offer h3 { margin: 0; font-weight: 500; font-size: 1.4rem; line-height: 1.2; }
+.offer .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.offer .tags li { font-size: 13.5px; line-height: 1.3; color: var(--ink-soft); background: var(--paper-2); border-radius: 999px; padding: 4px 10px; }
+.offer .figures { margin: auto 0 0; padding-top: 16px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+.offer .figures div { min-width: 0; }
+.offer .figures dt { font-size: 13px; color: var(--ink-soft); }
+.offer .figures dd { margin: 0; font-weight: 500; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.offer .figures .price { grid-column: 1 / -1; }
+.offer .figures .price dd { font-size: 1.6rem; font-weight: 400; letter-spacing: -.01em; color: var(--link); }
+.offer .energy { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+@media (min-width: 720px) { .offer .energy { min-height: 6em; } }
+.offer .btn { justify-content: center; flex-wrap: wrap; text-align: center; }
+.offer .btn small { font-size: 13px; font-weight: 400; opacity: .85; }
+.sale .note { margin: 36px 0 0; max-width: 72ch; font-size: 15px; color: var(--ink-soft); }
+.sale .note a { color: var(--link); text-underline-offset: 3px; }
+
 /* Kontaktband = grüner Balken */
 .contact { background: var(--green); color: var(--on-green); padding-block: clamp(56px, 8vw, 112px); }
 .contact .wrap { display: grid; gap: 36px; }
@@ -381,6 +408,7 @@ html.lb-open { overflow: hidden; }
       <a href="#wer-wir-sind">Wer wir sind</a>
       <a href="#was-wir-machen">Was wir machen</a>
       <a href="#haeuser">Unsere Häuser</a>
+      <a href="#verkauf">Zum Verkauf</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <a class="call" href="tel:+491706919293">
@@ -421,7 +449,7 @@ html.lb-open { overflow: hidden; }
 
   <!-- Aktuell zu vermieten
        Je freier Wohnung ein <article class="listing"> mit eigener Galerie (data-gallery).
-       Ist nichts frei, den ganzen Abschnitt samt Navigationspunkt und Hinweis im Auftakt entfernen. -->
+       Ist nichts frei, den ganzen Abschnitt samt Navigationspunkt (auch in impressum.html und datenschutz.html) und Hinweis im Auftakt entfernen. -->
   <section class="section tint rent" id="zu-vermieten">
     <div class="wrap">
       <div class="head">
@@ -565,6 +593,98 @@ html.lb-open { overflow: hidden; }
           <figcaption><b>Neuwied</b>Gründerzeithaus unter Denkmalschutz</figcaption>
         </figure>
       </div>
+    </div>
+  </section>
+
+  <section class="section tint sale" id="verkauf">
+    <div class="wrap">
+      <h2>Zum Verkauf</h2>
+      <p class="intro">Drei Mehrfamilienhäuser aus unserem Bestand geben wir ab, direkt vom Eigentümer und ohne Makler. Alle drei sind vollvermietet. Die Exposés mit allen Angaben können Sie hier herunterladen.</p>
+      <div class="offers">
+
+        <article class="offer">
+          <img src="img/v-am-schlossgarten-2.jpg" alt="Luftaufnahme des Mehrfamilienhauses Am Schlossgarten 2 in Neuwied-Engers mit Gauben im Dach" width="1200" height="799" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Engers</p>
+              <h3>Am Schlossgarten 2</h3>
+            </div>
+            <ul class="tags">
+              <li>12 Wohnungen</li>
+              <li>596 m² Wohnfläche</li>
+              <li>1.522 m² Grundstück</li>
+              <li>Baujahr 1973</li>
+              <li>4 Garagen</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>1.229.028 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>53.436 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,35 %</dd></div>
+            </dl>
+            <p class="energy">Energieverbrauchsausweis, Endenergieverbrauch 98,3 kWh/(m²·a), Erdgas, Baujahr laut Ausweis 1974, Effizienzklasse&nbsp;C</p>
+            <a class="btn primary" href="expose/expose-am-schlossgarten-2-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 3,8 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="img/v-hilgenpfad-28.jpg" alt="Luftaufnahme des Dreifamilienhauses Hilgenpfad 28 in Neuwied-Heimbach-Weis mit dunklem Dach und Garten" width="1200" height="800" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Heimbach-Weis</p>
+              <h3>Hilgenpfad 28</h3>
+            </div>
+            <ul class="tags">
+              <li>3 Wohnungen</li>
+              <li>ca. 263 m² Wohnfläche</li>
+              <li>ca. 467 m² Grundstück</li>
+              <li>Baujahr 1973</li>
+              <li>4 Stellplätze</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>627.840 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>26.160 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>4,17 %</dd></div>
+            </dl>
+            <p class="energy">Energiebedarfsausweis, Endenergiebedarf 184,2 kWh/(m²·a), Erdgas, Baujahr 1973, Effizienzklasse&nbsp;F</p>
+            <a class="btn primary" href="expose/expose-hilgenpfad-28-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 4,2 MB</small>
+            </a>
+          </div>
+        </article>
+
+        <article class="offer">
+          <img src="img/v-hilgenpfad-28a.jpg" alt="Luftaufnahme des Dreifamilienhauses Hilgenpfad 28a in Neuwied-Heimbach-Weis mit rotem Ziegeldach und Garage" width="1200" height="799" loading="lazy">
+          <div class="body">
+            <div>
+              <p class="where">Neuwied-Heimbach-Weis</p>
+              <h3>Hilgenpfad 28a</h3>
+            </div>
+            <ul class="tags">
+              <li>3 Wohnungen</li>
+              <li>ca. 290 m² Wohnfläche</li>
+              <li>ca. 510 m² Grundstück</li>
+              <li>Baujahr 1997</li>
+              <li>Wärmepumpe und Photovoltaik</li>
+            </ul>
+            <dl class="figures">
+              <div class="price"><dt>Kaufpreis</dt><dd>705.600 €</dd></div>
+              <div><dt>Jahresnettokaltmiete</dt><dd>27.000 €</dd></div>
+              <div><dt>Bruttorendite</dt><dd>3,83 %</dd></div>
+            </dl>
+            <p class="energy">Energieverbrauchsausweis, Endenergieverbrauch 54,1 kWh/(m²·a), Strom (Wärmepumpe), Baujahr 1997, Effizienzklasse&nbsp;B</p>
+            <a class="btn primary" href="expose/expose-hilgenpfad-28a-neuwied.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Exposé herunterladen <small>PDF, 3,3 MB</small>
+            </a>
+          </div>
+        </article>
+
+      </div>
+      <p class="note">Fragen zu den Häusern oder Wunsch nach einer Besichtigung? Ansprechpartner für den Verkauf ist Ralf Wetzler, Telefon <a href="tel:+491714668232">0171 4668232</a>, E‑Mail <a href="mailto:info@wetzler.immo">info@wetzler.immo</a>. Alle Angaben ohne Gewähr, Zwischenverkauf vorbehalten.</p>
     </div>
   </section>
 
